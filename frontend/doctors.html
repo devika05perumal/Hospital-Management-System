@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Doctors | Hospital Management System</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+<div class="layout">
+  <aside class="sidebar">
+    <div class="brand">&#10010; MediCare HMS</div>
+    <nav>
+      <a href="dashboard.html"><span>&#127968;</span> Dashboard</a>
+      <a href="patients.html"><span>&#129489;</span> Patients</a>
+      <a href="doctors.html" class="active"><span>&#129658;</span> Doctors</a>
+      <a href="appointments.html"><span>&#128197;</span> Appointments</a>
+      <a href="dashboard.html#profile" data-profile><span>&#128100;</span> Profile</a>
+      <a href="#" data-logout><span>&#128682;</span> Logout</a>
+    </nav>
+  </aside>
+  <div class="main">
+    <header class="topbar">
+      <div style="display:flex;align-items:center;gap:12px"><button class="menu-toggle" aria-label="Menu">&#9776;</button><h1>Doctors</h1></div>
+      <div class="user-chip"><span data-user-name>...</span><div class="avatar" data-user-initial>?</div></div>
+    </header>
+    <main class="content">
+      <section class="card">
+        <div class="card-header"><h2>Doctor Directory</h2>
+          <div style="display:flex;gap:10px;flex-wrap:wrap"><input class="form-control search" id="search" placeholder="Search name or specialization"><button class="btn" id="add-btn">+ Add Doctor</button></div></div>
+        <div class="table-wrap"><table>
+          <thead><tr><th>ID</th><th>Name</th><th>Specialization</th><th>Phone</th><th>Email</th><th>Actions</th></tr></thead>
+          <tbody id="table-body"></tbody>
+        </table></div>
+      </section>
+      <div class="modal-backdrop" id="modal">
+        <form class="modal" id="entity-form" novalidate>
+          <h3 id="modal-title">Add Doctor</h3>
+          <div class="form-group"><label>Name</label><input class="form-control" name="name" required></div>
+          <div class="form-group"><label>Specialization</label><input class="form-control" name="specialization" placeholder="e.g. Cardiology" required></div>
+          <div class="form-row">
+            <div class="form-group"><label>Phone</label><input class="form-control" name="phone" required></div>
+            <div class="form-group"><label>Email</label><input class="form-control" type="email" name="email" required></div>
+          </div>
+          <div class="modal-footer"><button type="button" class="btn btn-outline" id="cancel-btn">Cancel</button><button type="submit" class="btn">Save</button></div>
+        </form>
+      </div>
+    </main>
+  </div>
+</div>
+<div id="toast-container"></div>
+<script src="js/api.js"></script>
+<script src="js/doctors.js"></script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Appointments | Hospital Management System</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+<div class="layout">
+  <aside class="sidebar">
+    <div class="brand">&#10010; MediCare HMS</div>
+    <nav>
+      <a href="dashboard.html"><span>&#127968;</span> Dashboard</a>
+      <a href="patients.html"><span>&#129489;</span> Patients</a>
+      <a href="doctors.html"><span>&#129658;</span> Doctors</a>
+      <a href="appointments.html" class="active"><span>&#128197;</span> Appointments</a>
+      <a href="dashboard.html#profile" data-profile><span>&#128100;</span> Profile</a>
+      <a href="#" data-logout><span>&#128682;</span> Logout</a>
+    </nav>
+  </aside>
+  <div class="main">
+    <header class="topbar">
+      <div style="display:flex;align-items:center;gap:12px"><button class="menu-toggle" aria-label="Menu">&#9776;</button><h1>Appointments</h1></div>
+      <div class="user-chip"><span data-user-name>...</span><div class="avatar" data-user-initial>?</div></div>
+    </header>
+    <main class="content">
+      <section class="card">
+        <div class="card-header"><h2>Appointments</h2>
+          <div style="display:flex;gap:10px;flex-wrap:wrap"><select class="form-control search" id="status-filter"><option value="">All statuses</option><option>Scheduled</option><option>Completed</option><option>Cancelled</option></select><button class="btn" id="add-btn">+ Book Appointment</button></div></div>
+        <div class="table-wrap"><table>
+          <thead><tr><th>ID</th><th>Patient</th><th>Doctor</th><th>Date</th><th>Reason</th><th>Status</th><th>Actions</th></tr></thead>
+          <tbody id="table-body"></tbody>
+        </table></div>
+      </section>
+      <div class="modal-backdrop" id="modal">
+        <form class="modal" id="entity-form" novalidate>
+          <h3 id="modal-title">Book Appointment</h3>
+          <div class="form-group"><label>Patient</label><select class="form-control" name="patient_id" required></select></div>
+          <div class="form-group"><label>Doctor</label><select class="form-control" name="doctor_id" required></select></div>
+          <div class="form-row">
+            <div class="form-group"><label>Appointment Date</label><input class="form-control" type="datetime-local" name="appointment_date" required></div>
+            <div class="form-group"><label>Status</label><select class="form-control" name="status"><option>Scheduled</option><option>Completed</option><option>Cancelled</option></select></div>
+          </div>
+          <div class="form-group"><label>Reason</label><textarea class="form-control" name="reason" rows="3"></textarea></div>
+          <div class="modal-footer"><button type="button" class="btn btn-outline" id="cancel-btn">Cancel</button><button type="submit" class="btn">Save</button></div>
+        </form>
+      </div>
+    </main>
+  </div>
+</div>
+<div id="toast-container"></div>
+<script src="js/api.js"></script>
+<script src="js/appointments.js"></script>
+</body>
+</html>

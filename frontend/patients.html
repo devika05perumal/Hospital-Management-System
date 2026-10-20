@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Patients | Hospital Management System</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+<div class="layout">
+  <aside class="sidebar">
+    <div class="brand">&#10010; MediCare HMS</div>
+    <nav>
+      <a href="dashboard.html"><span>&#127968;</span> Dashboard</a>
+      <a href="patients.html" class="active"><span>&#129489;</span> Patients</a>
+      <a href="doctors.html"><span>&#129658;</span> Doctors</a>
+      <a href="appointments.html"><span>&#128197;</span> Appointments</a>
+      <a href="dashboard.html#profile" data-profile><span>&#128100;</span> Profile</a>
+      <a href="#" data-logout><span>&#128682;</span> Logout</a>
+    </nav>
+  </aside>
+  <div class="main">
+    <header class="topbar">
+      <div style="display:flex;align-items:center;gap:12px"><button class="menu-toggle" aria-label="Menu">&#9776;</button><h1>Patients</h1></div>
+      <div class="user-chip"><span data-user-name>...</span><div class="avatar" data-user-initial>?</div></div>
+    </header>
+    <main class="content">
+      <section class="card">
+        <div class="card-header"><h2>Patient Records</h2>
+          <div style="display:flex;gap:10px;flex-wrap:wrap"><input class="form-control search" id="search" placeholder="Search name or phone"><button class="btn" id="add-btn">+ Add Patient</button></div></div>
+        <div class="table-wrap"><table>
+          <thead><tr><th>ID</th><th>Name</th><th>Age</th><th>Gender</th><th>Phone</th><th>Address</th><th>Actions</th></tr></thead>
+          <tbody id="table-body"></tbody>
+        </table></div>
+      </section>
+      <div class="modal-backdrop" id="modal">
+        <form class="modal" id="entity-form" novalidate>
+          <h3 id="modal-title">Add Patient</h3>
+          <div class="form-group"><label>Name</label><input class="form-control" name="name" required></div>
+          <div class="form-row">
+            <div class="form-group"><label>Age</label><input class="form-control" type="number" name="age" min="0" max="150" required></div>
+            <div class="form-group"><label>Gender</label><select class="form-control" name="gender" required><option value="">Select</option><option>Male</option><option>Female</option><option>Other</option></select></div>
+          </div>
+          <div class="form-group"><label>Phone</label><input class="form-control" name="phone" required></div>
+          <div class="form-group"><label>Address</label><textarea class="form-control" name="address" rows="3"></textarea></div>
+          <div class="modal-footer"><button type="button" class="btn btn-outline" id="cancel-btn">Cancel</button><button type="submit" class="btn">Save</button></div>
+        </form>
+      </div>
+    </main>
+  </div>
+</div>
+<div id="toast-container"></div>
+<script src="js/api.js"></script>
+<script src="js/patients.js"></script>
+</body>
+</html>

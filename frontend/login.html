@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login | Hospital Management System</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/auth.css">
+</head>
+<body>
+<div class="auth-page">
+  <div class="auth-side">
+    <div class="logo">&#10010;</div>
+    <h1>MediCare HMS</h1>
+    <p>A secure administration panel for your hospital's patients, doctors and appointments.</p>
+    <ul><li>&#10003; Patient records</li><li>&#10003; Doctor directory</li><li>&#10003; Appointment scheduling</li></ul>
+  </div>
+  <div class="auth-main">
+    <form class="auth-card" id="login-form" novalidate>
+      <h2>Welcome back</h2>
+      <p class="sub">Log in to your hospital account</p>
+      <div id="form-alert" class="alert"></div>
+      <div class="form-group"><label for="email">Email</label><input class="form-control" type="email" id="email" placeholder="you@hospital.com"><div class="error-text" id="email-error"></div></div>
+      <div class="form-group"><label for="password">Password</label><input class="form-control" type="password" id="password" placeholder="Your password"><div class="error-text" id="password-error"></div></div>
+      <div class="auth-actions">
+        <button type="submit" class="btn btn-block">Login</button>
+        <a href="register.html" class="btn btn-outline btn-block">Create Account</a>
+      </div>
+    </form>
+  </div>
+</div>
+<script src="js/api.js"></script>
+<script src="js/auth.js"></script>
+</body>
+</html>

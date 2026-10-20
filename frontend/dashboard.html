@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard | Hospital Management System</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+<div class="layout">
+  <aside class="sidebar">
+    <div class="brand">&#10010; MediCare HMS</div>
+    <nav>
+      <a href="dashboard.html" class="active"><span>&#127968;</span> Dashboard</a>
+      <a href="patients.html"><span>&#129489;</span> Patients</a>
+      <a href="doctors.html"><span>&#129658;</span> Doctors</a>
+      <a href="appointments.html"><span>&#128197;</span> Appointments</a>
+      <a href="dashboard.html#profile" data-profile><span>&#128100;</span> Profile</a>
+      <a href="#" data-logout><span>&#128682;</span> Logout</a>
+    </nav>
+  </aside>
+  <div class="main">
+    <header class="topbar">
+      <div style="display:flex;align-items:center;gap:12px"><button class="menu-toggle" aria-label="Menu">&#9776;</button><h1>Dashboard</h1></div>
+      <div class="user-chip"><span data-user-name>...</span><div class="avatar" data-user-initial>?</div></div>
+    </header>
+    <main class="content">
+      <p style="margin-bottom:20px;color:var(--muted)">Welcome back, <strong data-user-name>...</strong></p>
+      <section class="stats">
+        <div class="stat-card"><div class="stat-icon">&#129489;</div><div><div class="label">Total Patients</div><div class="value" id="stat-patients"><span class="spinner"></span></div></div></div>
+        <div class="stat-card"><div class="stat-icon">&#129658;</div><div><div class="label">Total Doctors</div><div class="value" id="stat-doctors"><span class="spinner"></span></div></div></div>
+        <div class="stat-card"><div class="stat-icon">&#128197;</div><div><div class="label">Total Appointments</div><div class="value" id="stat-appointments"><span class="spinner"></span></div></div></div>
+      </section>
+      <section class="card">
+        <div class="card-header"><h2>Quick Actions</h2></div>
+        <div class="quick-links">
+          <a class="btn" href="patients.html">Manage Patients</a>
+          <a class="btn" href="doctors.html">Manage Doctors</a>
+          <a class="btn" href="appointments.html">Book Appointment</a>
+        </div>
+      </section>
+      <section class="card">
+        <div class="card-header"><h2>Recent Appointments</h2><a href="appointments.html">View all &rarr;</a></div>
+        <div class="table-wrap"><table>
+          <thead><tr><th>Patient</th><th>Doctor</th><th>Date</th><th>Reason</th><th>Status</th></tr></thead>
+          <tbody id="recent-body"><tr class="loading-row"><td colspan="5"><span class="spinner"></span> Loading...</td></tr></tbody>
+        </table></div>
+      </section>
+      <div class="modal-backdrop" id="profile-modal">
+        <div class="modal">
+          <h3>My Profile</h3>
+          <dl class="profile-grid"><dt>ID</dt><dd id="p-id"></dd><dt>Name</dt><dd id="p-name"></dd><dt>Email</dt><dd id="p-email"></dd></dl>
+          <div class="modal-footer"><button class="btn" id="profile-close">Close</button></div>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>
+<div id="toast-container"></div>
+<script src="js/api.js"></script>
+<script src="js/dashboard.js"></script>
+</body>
+</html>

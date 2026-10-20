@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome | Hospital Management System</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/auth.css">
+</head>
+<body>
+<div class="landing">
+  <div>
+    <div style="font-size:56px">&#10010;</div>
+    <h1>Hospital Management System</h1>
+    <p>Manage patients, doctors and appointments in one secure, easy-to-use dashboard.</p>
+    <div class="actions">
+      <a class="btn" href="login.html">Login</a>
+      <a class="btn btn-outline" href="register.html">Create Account</a>
+    </div>
+  </div>
+</div>
+<script src="js/api.js"></script>
+<script>if (getToken()) location.href = "dashboard.html";</script>
+</body>
+</html>
